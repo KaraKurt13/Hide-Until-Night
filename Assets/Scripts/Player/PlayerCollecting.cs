@@ -10,6 +10,7 @@ public class PlayerCollecting : MonoBehaviour
     bool collectingIsAvaible;
     bool collectingIsInProgress;
     float collectingSpeed;
+    [SerializeField] List<CollectibleResource> avaibleResources;
     [SerializeField] CollectibleResource resourceToCollect;
 
     public delegate void CollectingResource(string collectingType);
@@ -20,6 +21,7 @@ public class PlayerCollecting : MonoBehaviour
     {
         playerAnimationController = GetComponent<PlayerAnimation>();
         playerStats = GetComponent<PlayerStats>();
+        avaibleResources = new List<CollectibleResource>();
         CollectibleResource.collectingIsAvaible += AllowCollectResource;
         CollectibleResource.collectingIsUnavaible += ForbidCollectResource;
         collectingIsAvaible = false;
@@ -50,25 +52,43 @@ public class PlayerCollecting : MonoBehaviour
     private void AllowCollectResource(CollectibleResource resource)
     {
         collectingIsAvaible = true;
-        resourceToCollect = resource;
+        avaibleResources.Add(resource);
     }
 
     private void ForbidCollectResource(CollectibleResource resource)
     {
+        avaibleResources.Remove(resource);
+
+        if (avaibleResources.Count==0)
+        {
             collectingIsAvaible = false;
-            StopResourceCollection();
-            resourceToCollect = null;
-        
+        }
+            
+            StopResourceCollection();            
     }
 
     private void StartResourceCollection()
     {
         collectingIsInProgress = true;
         collectingPosition = transform.position;
+        CalculateNearestResoruce();
         SetCollectingSpeed();
         collectingStarted(resourceToCollect.type.ToString());
     }
 
+    private void CalculateNearestResoruce()
+    {
+        float minDistance=10f;
+
+        foreach(CollectibleResource resource in avaibleResources)
+        {
+            if(Vector3.Distance(collectingPosition,resource.transform.position)<minDistance)
+            {
+                resourceToCollect = resource;
+                minDistance = Vector3.Distance(collectingPosition, resource.transform.position);
+            }
+        }
+    }
     private void SetCollectingSpeed()
     {
         switch(resourceToCollect.type.ToString())
