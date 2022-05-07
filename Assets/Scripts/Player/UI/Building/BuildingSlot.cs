@@ -22,7 +22,6 @@ public class BuildingSlot : MonoBehaviour
 
     public void UpdateBuildingSlot()
     {
-        Debug.Log(tileSprite);
         tileImageObject.sprite = tileSprite;
         tileImageButton.onClick.AddListener(delegate { NewTileSelected(tileSprite, tileType); });
     }

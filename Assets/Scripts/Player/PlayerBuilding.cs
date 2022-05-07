@@ -9,30 +9,26 @@ public class PlayerBuilding : MonoBehaviour
     [SerializeField] private Tilemap buildingTileMap;
     [SerializeField] private Tilemap wallTileMap;
     [SerializeField] private Tilemap floorTileMap;
-    [SerializeField] private Transform playerTransform;
 
     private Vector3Int previousBuildingPosition;
     private Vector3Int buildingPosition;
     private Tile buildingTile;
     private BuildingTile tileInfo;
     private string tileType;
-    private bool buildingIsAvaible;
 
-    private const float MIN_BUILDING_RADUIS=1f;
+    private const float MIN_BUILDING_RADUIS = 0.15f;
+    private const float MAX_BUILDING_RADIUS = 0.3f;
 
 
     void Start()
     {
         BuildingSlot.NewTileSelected += ChangeBuildingTile;
-        buildingIsAvaible = true;
         buildingTile = new Tile();
     }
 
     void Update()
     {
-        Debug.Log(Vector3.Distance(playerTransform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)));
-
-        if(Input.GetMouseButtonDown(0)&&buildingTile.sprite!=null&&buildingIsAvaible)
+        if(Input.GetMouseButtonDown(0)&&buildingTile.sprite!=null&&BuildingIsPossible())
         {
             PlaceTile();
         }
@@ -47,6 +43,18 @@ public class PlayerBuilding : MonoBehaviour
         buildingTileMap.SetTile(buildingPosition, buildingTile);
     }
 
+    private bool BuildingIsPossible()
+    {
+        float buildingRange= Vector2.Distance(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        if (buildingRange < MAX_BUILDING_RADIUS && buildingRange > MIN_BUILDING_RADUIS)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     public void SetBuildingTileSprite()
     {
         buildingTile.sprite = tileInfo.tileVariations[0];
@@ -54,7 +62,6 @@ public class PlayerBuilding : MonoBehaviour
 
     private void ChangeBuildingTile(Sprite tileSprite,string newTileType)
     {
-        Debug.Log(tileSprite);
         buildingTile.sprite = tileSprite;
         tileType = newTileType;
     }

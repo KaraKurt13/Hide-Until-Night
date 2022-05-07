@@ -22,7 +22,6 @@ public class DayNightChange : MonoBehaviour
 
     private void RunTimeMachine()
     {
-        Debug.Log("Current time - " + currentTimeState);
         TimeBaseState nextTimeState = currentTimeState?.TimeAction();
 
         if (nextTimeState!=null)
