@@ -12,14 +12,17 @@ public class InventoryUI : MonoBehaviour
     public static event InventoryUsage inventoryClosed;
 
     public InventorySlot[] inventorySlots;
+    private bool inventoryIsAvaible;
 
     private void Start()
     {
         inventorySlots = this.GetComponentsInChildren<InventorySlot>(true);
+        inventoryIsAvaible = true;
+        
     }
     void Update()
     {
-        if (Input.GetButtonDown("Inventory"))
+        if (Input.GetButtonDown("Inventory")&&inventoryIsAvaible)
         {
             switch(inventoryUI.activeSelf)
             {
@@ -67,9 +70,26 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
+    private void DisableInventoryByCollecting(string type)
+    {
+        if(inventoryUI.activeSelf==true)
+        {
+            CloseInventory();
+        }
+        inventoryIsAvaible = false;
+
+    }
+
+    private void EnableInventoryByCollecting(string type)
+    {
+        inventoryIsAvaible = true;
+    }
+
     private void OnEnable()
     {
         PlayerInventory.inventoryChanged += UpdateInventory;
+        PlayerCollecting.collectingStarted += DisableInventoryByCollecting;
+        PlayerCollecting.collectingEnded += EnableInventoryByCollecting;
     }
     
 }

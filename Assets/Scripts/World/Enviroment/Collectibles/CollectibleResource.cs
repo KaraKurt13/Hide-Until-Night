@@ -90,7 +90,6 @@ public class CollectibleResource : MonoBehaviour
             dropItemObject.GetComponent<WorldItem>().item = item;
             for (int i = 0; i < itemsDropAmount[counter]; i++)
             {
-                Debug.Log("DROP!");
                 Instantiate(dropItemObject, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
             }
             counter++;

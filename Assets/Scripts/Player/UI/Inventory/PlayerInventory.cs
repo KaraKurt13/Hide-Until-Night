@@ -8,8 +8,11 @@ public class PlayerInventory : ScriptableObject
     public List<Item> items;
     public List<int> itemsAmount;
 
+
     public delegate void InventoryChanged();
     public static event InventoryChanged inventoryChanged;
+    
+
 
     public void AddItem(Item item,int amount)
     {
@@ -46,7 +49,7 @@ public class PlayerInventory : ScriptableObject
 
     }
 
-
+    
     private void OnDisable()
     {
         items.Clear();
