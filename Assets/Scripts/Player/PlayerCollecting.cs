@@ -9,6 +9,7 @@ public class PlayerCollecting : MonoBehaviour
     private Vector3 collectingPosition;
     bool collectingIsAvaible;
     bool collectingIsInProgress;
+    bool spriteIsFlipped;
     float collectingSpeed;
     [SerializeField] List<CollectibleResource> avaibleResources;
     [SerializeField] CollectibleResource resourceToCollect;
@@ -25,6 +26,7 @@ public class PlayerCollecting : MonoBehaviour
         CollectibleResource.collectingIsAvaible += AllowCollectResource;
         CollectibleResource.collectingIsUnavaible += ForbidCollectResource;
         collectingIsAvaible = false;
+        spriteIsFlipped = false;
     }
 
     private void Update()
@@ -37,6 +39,7 @@ public class PlayerCollecting : MonoBehaviour
         if(collectingIsInProgress)
         {
             CheckForMoving();
+            CheckForCollectingPossibility();
             CollectResource();
         }
     }
@@ -44,6 +47,14 @@ public class PlayerCollecting : MonoBehaviour
     private void CheckForMoving()
     {
         if(transform.position!=collectingPosition)
+        {
+            StopResourceCollection();
+        }
+    }
+
+    private void CheckForCollectingPossibility()
+    {
+        if(collectingIsAvaible==false)
         {
             StopResourceCollection();
         }
@@ -63,8 +74,7 @@ public class PlayerCollecting : MonoBehaviour
         {
             collectingIsAvaible = false;
         }
-            
-            StopResourceCollection();            
+                        
     }
 
     private void StartResourceCollection()
@@ -73,6 +83,13 @@ public class PlayerCollecting : MonoBehaviour
         collectingPosition = transform.position;
         CalculateNearestResoruce();
         SetCollectingSpeed();
+
+        if(collectingPosition.x>resourceToCollect.gameObject.transform.position.x)
+        {
+            spriteIsFlipped = true;
+            FlipSprite();
+        }
+
         collectingStarted(resourceToCollect.type.ToString());
     }
 
@@ -89,6 +106,7 @@ public class PlayerCollecting : MonoBehaviour
             }
         }
     }
+
     private void SetCollectingSpeed()
     {
         switch(resourceToCollect.type.ToString())
@@ -113,9 +131,22 @@ public class PlayerCollecting : MonoBehaviour
 
     private void StopResourceCollection()
     {
+        if(spriteIsFlipped)
+        {
+            spriteIsFlipped = false;
+            FlipSprite();
+        }
         collectingIsInProgress = false;
         collectingEnded(null);
     }
+
+    private void FlipSprite()
+    {
+            Vector3 flipScale = transform.localScale;
+            flipScale.x *= -1;
+            transform.localScale = flipScale;
+    }
+
 
     private void CollectResource()
     {
