@@ -284,6 +284,11 @@ GameObject:
   - component: {fileID: 7115294564897197374}
   - component: {fileID: 7115294564897197345}
   - component: {fileID: 7115294564897197344}
+  - component: {fileID: 5042422285961872753}
+  - component: {fileID: -4106364676784506816}
+  - component: {fileID: -2648568006145149543}
+  - component: {fileID: 8218338960435014650}
+  - component: {fileID: 4521501023384175220}
   m_Layer: 0
   m_Name: CollectibleResourse (Tree)
   m_TagString: CollectibleResource
@@ -372,10 +377,10 @@ MonoBehaviour:
   progressOfCollecting: 50
   itemsDrop:
   - {fileID: 11400000, guid: 18d1ed177cb8a104b9cbd3e8368a4dd3, type: 2}
-  itemsRareDrop: []
   itemsDropAmount: 04000000
+  itemsRareDrop: []
   itemsRareDropAmount: 
-  itemsRareDropChance: 
+  itemsRareDropChance: []
   ResourceUI: {fileID: 7115294564987263121}
   collectingStatusUI: {fileID: 7115294563892341020}
   dropPrefab: {fileID: 7474360839374406934, guid: 7dd4d82f219e3434eb1c11104f62954e,
@@ -406,6 +411,81 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.23081736, y: 0.08806062}
   m_EdgeRadius: 0
+--- !u!114 &5042422285961872753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115294564897197347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04269d57c7cbeb841988a6e0017d7105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newWoodAmount: 7
+  treeSprite: {fileID: -5144544216277806308, guid: dac49b406a03bfa44abc16f009ad5221,
+    type: 3}
+--- !u!114 &-4106364676784506816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115294564897197347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18ceec6a76c1ab4bb9bd95f9213956b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newWoodAmount: 5
+  treeSprite: {fileID: -5380024921496914936, guid: dac49b406a03bfa44abc16f009ad5221,
+    type: 3}
+  timeToGrow: 300
+--- !u!114 &-2648568006145149543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115294564897197347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8f4138f7497094b9be4db799916a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newWoodAmount: 3
+  treeSprite: {fileID: -7853004629414400473, guid: dac49b406a03bfa44abc16f009ad5221,
+    type: 3}
+  timeToGrow: 300
+--- !u!114 &8218338960435014650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115294564897197347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d54adebfd065f4daa4a544f8ffced2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newWoodAmount: 1
+  treeSprite: {fileID: 8772070171682128233, guid: dac49b406a03bfa44abc16f009ad5221,
+    type: 3}
+  timeToGrow: 300
+--- !u!114 &4521501023384175220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115294564897197347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fabadf549b547c4498a849bda5e3f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7115294564987263121
 GameObject:
   m_ObjectHideFlags: 0

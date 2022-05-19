@@ -7,6 +7,9 @@ TagManager:
   - CollectibleResource
   - PlayerGrassTrigger
   - PlayerCollectibleResourceTrigger
+  - UnbuildedTile
+  - PlayerBuildingControllerTrigger
+  - DestructionTile
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - Walls
   - 
   - 
   - 
@@ -52,4 +55,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1479930069
+    locked: 0
+  - name: Walls
+    uniqueID: 3241333081
     locked: 0

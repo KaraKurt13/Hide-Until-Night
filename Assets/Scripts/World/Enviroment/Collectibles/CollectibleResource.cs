@@ -7,12 +7,12 @@ public class CollectibleResource : MonoBehaviour
 {
     public CollectingType type;
     public float progressOfCollecting;
-    [SerializeField] private Item[] itemsDrop;
-    [SerializeField] private int[] itemsDropAmount;
+    public Item[] itemsDrop;
+    public int[] itemsDropAmount;
 
-    [SerializeField] private Item[] itemsRareDrop;
-    [SerializeField] private int[] itemsRareDropAmount;
-    [SerializeField] private float[] itemsRareDropChance;
+    public Item[] itemsRareDrop;
+    public int[] itemsRareDropAmount;
+    public float[] itemsRareDropChance;
 
     public delegate void Collecting(CollectibleResource collectibleObject);
     public static event Collecting collectingIsAvaible;
@@ -32,9 +32,11 @@ public class CollectibleResource : MonoBehaviour
 
         if(progressOfCollecting<=0)
         {
-            collectingIsUnavaible(this);
+            
             DropItems();
+            collectingIsUnavaible(this);
             Destroy(this.gameObject);
+
         }
     }
 

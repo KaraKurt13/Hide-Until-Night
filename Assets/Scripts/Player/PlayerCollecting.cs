@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Tilemaps;
 public class PlayerCollecting : MonoBehaviour
 {
     private PlayerAnimation playerAnimationController;
@@ -11,8 +11,10 @@ public class PlayerCollecting : MonoBehaviour
     bool collectingIsInProgress;
     bool spriteIsFlipped;
     float collectingSpeed;
-    [SerializeField] List<CollectibleResource> avaibleResources;
-    [SerializeField] CollectibleResource resourceToCollect;
+    private List<CollectibleResource> avaibleResources;
+    private CollectibleResource resourceToCollect;
+
+    
 
     public delegate void CollectingResource(string collectingType);
     public static event CollectingResource collectingStarted;
@@ -23,8 +25,10 @@ public class PlayerCollecting : MonoBehaviour
         playerAnimationController = GetComponent<PlayerAnimation>();
         playerStats = GetComponent<PlayerStats>();
         avaibleResources = new List<CollectibleResource>();
+
         CollectibleResource.collectingIsAvaible += AllowCollectResource;
         CollectibleResource.collectingIsUnavaible += ForbidCollectResource;
+
         collectingIsAvaible = false;
         spriteIsFlipped = false;
     }
@@ -99,10 +103,10 @@ public class PlayerCollecting : MonoBehaviour
 
         foreach(CollectibleResource resource in avaibleResources)
         {
-            if(Vector3.Distance(collectingPosition,resource.transform.position)<minDistance)
+            if(Vector2.Distance(collectingPosition,resource.transform.position)<minDistance)
             {
                 resourceToCollect = resource;
-                minDistance = Vector3.Distance(collectingPosition, resource.transform.position);
+                minDistance = Vector2.Distance(collectingPosition, resource.transform.position);
             }
         }
     }

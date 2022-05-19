@@ -75,9 +75,29 @@ public class PlayerAnimation : MonoBehaviour
 
     }
 
-    private void DisableeCollectingAnimation(string collectingType)
+    private void DisableCollectingAnimation(string collectingType)
     {
         playerAnimator.SetBool("CollectingIsInProgress", false);
+    }
+
+    private void ActivateBuildingAnimation()
+    {
+
+    }
+
+    private void DisableBuildingAnimation()
+    {
+
+    }
+
+    private void ActivateDestructionAnimation()
+    {
+
+    }
+    
+    private void DisableDestructionAnimation()
+    {
+
     }
 
     private void OnEnable()
@@ -85,7 +105,12 @@ public class PlayerAnimation : MonoBehaviour
         InventoryUI.inventoryOpened += ActivateInventoryAnimation;
         InventoryUI.inventoryClosed += DisableInventoryAnimation;
         PlayerCollecting.collectingStarted += ActivateCollectingAnimation;
-        PlayerCollecting.collectingEnded += DisableeCollectingAnimation;
+        PlayerCollecting.collectingEnded += DisableCollectingAnimation;
+        PlayerBuilding.buildingStarted += ActivateBuildingAnimation;
+        PlayerBuilding.buildingEnded += DisableBuildingAnimation;
+        PlayerDestruction.destructionStarted += ActivateDestructionAnimation;
+        PlayerDestruction.destructionEnded += DisableDestructionAnimation;
+        
     }
 
 }

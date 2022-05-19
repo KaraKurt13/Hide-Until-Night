@@ -12,5 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00a9173737dedb45adedeea3c2b4f79, type: 3}
   m_Name: WoodenWall
   m_EditorClassIdentifier: 
-  tileName: 
-  tileVariations: []
+  tileName: Wooden Wall
+  tileVariations:
+  - {fileID: -2931895855313350070, guid: d7c53cdc201431b4a9bdf54d8c344d97, type: 3}
+  - {fileID: -7441388259285176700, guid: d7c53cdc201431b4a9bdf54d8c344d97, type: 3}
+  - {fileID: -7616921014772750536, guid: d7c53cdc201431b4a9bdf54d8c344d97, type: 3}
+  - {fileID: 1752482017557805074, guid: d7c53cdc201431b4a9bdf54d8c344d97, type: 3}
+  - {fileID: 905187906586056964, guid: d7c53cdc201431b4a9bdf54d8c344d97, type: 3}
+  - {fileID: 2038917921911759847, guid: d7c53cdc201431b4a9bdf54d8c344d97, type: 3}
+  - {fileID: -4760157749862588980, guid: d7c53cdc201431b4a9bdf54d8c344d97, type: 3}
+  - {fileID: -4679861048368440530, guid: d7c53cdc201431b4a9bdf54d8c344d97, type: 3}
+  itemsNeeded:
+  - {fileID: 11400000, guid: 18d1ed177cb8a104b9cbd3e8368a4dd3, type: 2}
+  itemAmountNeeded: 03000000
+  type: 0

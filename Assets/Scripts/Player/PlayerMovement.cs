@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
         playerTransform = GetComponent<Transform>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         movementIsAvaible = true;
-
         moveSpeed =0.4f;
     }
 
@@ -35,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.y = Input.GetAxisRaw("Vertical");
     }
+
     private void FixedUpdate()
     {
         if(movementIsAvaible)

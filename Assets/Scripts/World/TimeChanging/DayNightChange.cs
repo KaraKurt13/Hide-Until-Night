@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DayNightChange : MonoBehaviour
 {
-    private float timeLeftForChange;
 
     TimeBaseState currentTimeState;
 

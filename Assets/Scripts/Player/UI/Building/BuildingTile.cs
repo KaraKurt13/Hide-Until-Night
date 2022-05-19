@@ -8,6 +8,8 @@ public class BuildingTile : ScriptableObject
 {
     public string tileName;
     public Sprite[] tileVariations;
+    public Item[] itemsNeeded;
+    public int[] itemAmountNeeded;
     public tileBuildingType type;
     
     public enum tileBuildingType

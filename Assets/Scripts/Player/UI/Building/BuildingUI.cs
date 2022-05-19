@@ -9,10 +9,14 @@ public class BuildingUI : MonoBehaviour
     [SerializeField] private GameObject buildingSlotPrefab;
     [SerializeField] private BuildingTile[] tiles;
     [SerializeField] private PlayerBuilding playerBuilding;
+    [SerializeField] private PlayerDestruction playerDestruction;
+
+    [SerializeField] private GameObject requiredItemPrefab;
+    [SerializeField] private GameObject requiredItemsContainer;
 
     private void Start()
     {
-
+        BuildingSlot.NewTileSelected += ShowRequiredItemsForBuilding;
     }
     void Update()
     {
@@ -38,14 +42,19 @@ public class BuildingUI : MonoBehaviour
     {
         buildingUI.SetActive(true);
         playerBuilding.enabled = true;
+        playerDestruction.enabled = true;
         UpdateBuildingUI();
     }
 
     private void CloseBuilding()
     {
         buildingUI.SetActive(false);
+        playerBuilding.RemoveVirtualTile();
         playerBuilding.enabled = false;
+        playerDestruction.enabled = false;
         ClearBuildingSlots();
+        ClearRequiredItemsForBuilding();
+        
     }
 
     private void UpdateBuildingUI()
@@ -54,16 +63,17 @@ public class BuildingUI : MonoBehaviour
         {
             foreach(Sprite tileSprite in tileContainer.tileVariations)
             {
-                AddNewBuildingSlot(tileSprite, tileContainer.type.ToString());
+                AddNewBuildingSlot(tileSprite, tileContainer);
             }
         }
     }
 
-    private void AddNewBuildingSlot(Sprite tileSprite,string tileType)
+    private void AddNewBuildingSlot(Sprite tileSprite,BuildingTile tileInfo)
     {
         GameObject newSlot = Instantiate(buildingSlotPrefab, buildingContainer.transform);
-        newSlot.GetComponent<BuildingSlot>().tileSprite = tileSprite;
-        newSlot.GetComponent<BuildingSlot>().tileType = tileType;
+        BuildingSlot buildingSlot = newSlot.GetComponent<BuildingSlot>();
+        buildingSlot.tileSprite = tileSprite;
+        buildingSlot.tileInfo=tileInfo;
     }
 
     private void ClearBuildingSlots()
@@ -74,7 +84,32 @@ public class BuildingUI : MonoBehaviour
         }
     }
 
+    private void ShowRequiredItemsForBuilding(Sprite tileSprite,BuildingTile tileInfo)
+    {
+        ClearRequiredItemsForBuilding();
+        int counter = 0;
+        foreach (Item requiredItem in tileInfo.itemsNeeded)
+        {
+            
+            GameObject requiredItemObject = Instantiate(requiredItemPrefab, requiredItemsContainer.transform);
+            BuildingRequiredItemUI requiredItemScript = requiredItemObject.GetComponent<BuildingRequiredItemUI>();
+
+            requiredItemScript.requiredItemSprite = requiredItem.itemImage;
+            requiredItemScript.requiredItemAmount = tileInfo.itemAmountNeeded[counter];
+            counter++;
+        }
+    }
+
+    private void ClearRequiredItemsForBuilding()
+    {
+        foreach(Transform oldRequiredItem in requiredItemsContainer.transform)
+        {
+            Destroy(oldRequiredItem.gameObject);
+        }
+    }
 
 
-   
+
+
+
 }
