@@ -10,6 +10,7 @@ TagManager:
   - UnbuildedTile
   - PlayerBuildingControllerTrigger
   - DestructionTile
+  - PlayerEnemyTrigger
   layers:
   - Default
   - TransparentFX

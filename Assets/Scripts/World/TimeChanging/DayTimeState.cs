@@ -5,6 +5,9 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class DayTimeState : TimeBaseState
 {
+    public delegate void EveningTime();
+    public static event EveningTime eveningHasBegun;
+
     private EveningTimeState eveningTimeState;
     private float timeLeft;
     
@@ -22,6 +25,7 @@ public class DayTimeState : TimeBaseState
 
         if (timeLeft < 0f)
         {
+            eveningHasBegun();
             timeLeft = 240f;
             return eveningTimeState;
         }

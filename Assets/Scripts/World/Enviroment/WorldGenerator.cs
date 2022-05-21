@@ -55,7 +55,7 @@ public class WorldGenerator : MonoBehaviour
             bool placingIsPossible=false;
             while (!placingIsPossible)
             {
-                randomPosition = Random.insideUnitCircle * 2f;
+                randomPosition = Random.insideUnitCircle * GENERATION_RADIUS;
                 placingIsPossible = TreePlacingIsPossible(randomPosition);
             }
 

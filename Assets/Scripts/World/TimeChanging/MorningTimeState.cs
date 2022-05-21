@@ -5,6 +5,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class MorningTimeState : TimeBaseState
 {
+
     private DayTimeState dayTimeState;
     private float timeLeft;
 

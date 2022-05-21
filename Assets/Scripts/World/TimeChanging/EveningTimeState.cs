@@ -5,6 +5,9 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class EveningTimeState : TimeBaseState
 {
+    public delegate void NightTime();
+    public static event NightTime nightHasBegun;
+
     private NightTimeState nightTimeState;
     private float timeLeft;
 
@@ -22,6 +25,7 @@ public class EveningTimeState : TimeBaseState
 
         if (timeLeft < 0f)
         {
+            nightHasBegun();
             timeLeft = 120f;
             return nightTimeState;
         }
