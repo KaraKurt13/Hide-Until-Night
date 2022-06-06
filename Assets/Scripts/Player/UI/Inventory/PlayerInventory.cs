@@ -25,8 +25,7 @@ public class PlayerInventory : ScriptableObject
         else
         {
             items.Add(item);
-            itemsAmount.Add(amount);
-            
+            itemsAmount.Add(amount);           
         }
 
         inventoryChanged();
@@ -39,6 +38,7 @@ public class PlayerInventory : ScriptableObject
         if(!item.isStackable || itemsAmount[itemID]-amount==0)
         {
             items.RemoveAt(itemID);
+            itemsAmount.RemoveAt(itemID);
         }
         else
         {

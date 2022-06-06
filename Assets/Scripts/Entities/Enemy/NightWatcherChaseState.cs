@@ -21,7 +21,7 @@ public class NightWatcherChaseState : EnemyAIState
     }
     public override EnemyAIState EnemyAction()
     {
-        if(playerIsNoLongerAround)
+        if(playerIsNoLongerAround==true)
         {
             playerIsNoLongerAround = false;
             destination.target = enemyTarget;
@@ -32,10 +32,9 @@ public class NightWatcherChaseState : EnemyAIState
 
         if(playerIsInAttackRadius)
         {
-            this.enabled = false;
-            attackState.enabled = true;
             return attackState;
         }
+
 
         return this;
     }
@@ -47,7 +46,7 @@ public class NightWatcherChaseState : EnemyAIState
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "PlayerEnemyTrigger")
+        if (collision.tag == "PlayerEnemyTrigger" && playerIsNoLongerAround == false && enabled)
         {
             enemyTarget.position = PlayerLastPosition();
             playerIsNoLongerAround = true;

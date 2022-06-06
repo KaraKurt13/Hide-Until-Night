@@ -21,6 +21,7 @@ public class NightWatcherEnemyAI : MonoBehaviour
     {
         EnemyAIState nextEnemyState = currentEnemyState?.EnemyAction();
         Debug.Log(currentEnemyState + " - " + nextEnemyState);
+
         if (nextEnemyState != null)
         {
             ChangeGrowingState(nextEnemyState);

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7115294563892341023}
   - component: {fileID: 7115294563892341020}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 7115294564037161205}
   - component: {fileID: 7115294564037161203}
   - component: {fileID: 7115294564037161202}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7115294564206601899}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 7115294564534691143}
   - component: {fileID: 7115294564534691141}
   - component: {fileID: 7115294564534691140}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: -2648568006145149543}
   - component: {fileID: 8218338960435014650}
   - component: {fileID: 4521501023384175220}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CollectibleResourse (Tree)
   m_TagString: CollectibleResource
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  progressOfCollecting: 50
+  progressOfCollecting: 1
   itemsDrop:
   - {fileID: 11400000, guid: 18d1ed177cb8a104b9cbd3e8368a4dd3, type: 2}
   itemsDropAmount: 04000000
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 7115294564987263341}
   - component: {fileID: 7115294564987263340}
   - component: {fileID: 7115294564987263343}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7115294565208115681}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

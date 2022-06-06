@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 997735767756316980}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 997735767921899370}
   - component: {fileID: 997735767921899372}
   - component: {fileID: 997735767921899373}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 997735768082866904}
   - component: {fileID: 997735768082866906}
   - component: {fileID: 997735768082866907}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 997735768582418048}
   - component: {fileID: 997735768582418051}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 997735769024171646}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 997735769643228914}
   - component: {fileID: 997735769643228915}
   - component: {fileID: 997735769643228912}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 997735769888737953}
   - component: {fileID: 997735769888737982}
   - component: {fileID: 997735769888737983}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CollectibleResourse (Stone)
   m_TagString: CollectibleResource
   m_Icon: {fileID: 0}
@@ -504,13 +504,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  progressOfCollecting: 50
+  progressOfCollecting: 1
   itemsDrop:
   - {fileID: 11400000, guid: 0ee2c004f78707445b3721f5c1060589, type: 2}
   itemsDropAmount: 05000000
-  itemsRareDrop: []
-  itemsRareDropAmount: 
-  itemsRareDropChance: []
+  itemsRareDrop:
+  - {fileID: 11400000, guid: 3d7827c386b4bcc4abaf77e29a956e03, type: 2}
+  itemsRareDropAmount: 01000000
+  itemsRareDropChance:
+  - 0.5
   ResourceUI: {fileID: 997735769643228942}
   collectingStatusUI: {fileID: 997735768582418051}
   dropPrefab: {fileID: 7474360839374406934, guid: 7dd4d82f219e3434eb1c11104f62954e,

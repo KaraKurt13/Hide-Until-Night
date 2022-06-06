@@ -10,70 +10,71 @@ public class NightWatcherSeekState : EnemyAIState
     [SerializeField] bool playerIsNear;
     [SerializeField] bool seekingStarted;
     [SerializeField] bool playerEscaped;
+
+    private IEnumerator coroutine;
+
     private void Start()
     {
         seekingStarted = false;
         playerEscaped = false;
         idleState = GetComponent<NightWatcherIdleState>();
         chaseState = GetComponent<NightWatcherChaseState>();
+        coroutine = SeekingProgress();
         playerIsNear = false;
     }
     public override EnemyAIState EnemyAction()
     {
+        if (playerIsNear == true)
+        {
+            StopCoroutine(coroutine);
+            SetBooleansDefault();
+            this.enabled = false;
+            chaseState.enabled = true;
+            return chaseState;
+        }
+
         if (playerEscaped == true)
         {
-            StopCoroutine(SeekingProgress());
-            this.enabled = false;
-            seekingStarted = false;
-            playerEscaped = false;
-            playerIsNear = false;
-
-
+            SetBooleansDefault();
             idleState.enabled = true;
-
+            this.enabled = false;
             return idleState;
         }
+
 
         if (seekingStarted == false)
         {
             Debug.Log("seek");
-            StartCoroutine(SeekingProgress());
+            StartCoroutine(coroutine);
 
         }
 
-        if (playerIsNear == true)
-        {
-            StopCoroutine(SeekingProgress());
-            playerIsNear = false;
-            seekingStarted = false;
-            playerEscaped = false;
-
-            this.enabled = false;
-            chaseState.enabled = true;
-
-            return chaseState;
-        }
-
         
-
-        
-
         return this;
+    }
+
+    private void SetBooleansDefault()
+    {
+        playerIsNear = false;
+        seekingStarted = false;
+        playerEscaped = false;
     }
 
     IEnumerator  SeekingProgress()
     {
         seekingStarted = true;
         yield return new WaitForSeconds(7);
-        playerEscaped = true;
+        if (!playerIsNear)
+        {
+            playerEscaped = true;
+        }
         seekingStarted = false;
-        playerIsNear = false;
-        
-        
+
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "PlayerEnemyTrigger" && playerIsNear==false)
+        if (collision.tag == "PlayerEnemyTrigger" && playerIsNear==false && enabled)
         {
             destination.target = collision.transform;
             playerIsNear = true;

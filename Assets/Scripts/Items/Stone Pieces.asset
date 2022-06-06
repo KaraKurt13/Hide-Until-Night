@@ -15,4 +15,5 @@ MonoBehaviour:
   itemName: Stone Pieces
   itemImage: {fileID: 21300000, guid: 38aab5344c9026f41b1a29ae86e2fb01, type: 3}
   itemType: 0
+  itemUsage: 0000000001000000
   isStackable: 1

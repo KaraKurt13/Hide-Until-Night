@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee9f19fa3182024496cfde86b48614f, type: 3}
+  m_Name: Melting Recipes
+  m_EditorClassIdentifier: 
+  itemIn:
+  - {fileID: 11400000, guid: a411f5ca1c4d7ba49bc5550662a59f0a, type: 2}
+  - {fileID: 11400000, guid: 0ee2c004f78707445b3721f5c1060589, type: 2}
+  itemOut:
+  - {fileID: 11400000, guid: 0ee2c004f78707445b3721f5c1060589, type: 2}
+  - {fileID: 11400000, guid: a411f5ca1c4d7ba49bc5550662a59f0a, type: 2}

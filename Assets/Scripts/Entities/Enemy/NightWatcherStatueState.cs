@@ -22,7 +22,7 @@ public class NightWatcherStatueState : EnemyAIState
             nightHasBegun = false;
 
             this.enabled = false;
-            idleState.enabled = true;
+            idleState.enabled=true;
             return idleState;
         }
 

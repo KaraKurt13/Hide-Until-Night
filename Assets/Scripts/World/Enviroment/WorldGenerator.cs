@@ -6,10 +6,12 @@ using UnityEngine.Tilemaps;
 
 public class WorldGenerator : MonoBehaviour
 {
+    [SerializeField] Transform collectibleResourcesContainer;
     [SerializeField] GameObject[] treeObjects;
     [SerializeField] GameObject[] bushObjects;
     [SerializeField] GameObject[] stoneObjects;
     [SerializeField] GameObject[] tallGrassClusterObjects;
+    
 
     [SerializeField] Tilemap wallsTileMap;
     [SerializeField] Tilemap floorTileMap;
@@ -59,7 +61,7 @@ public class WorldGenerator : MonoBehaviour
                 placingIsPossible = TreePlacingIsPossible(randomPosition);
             }
 
-            GameObject treeObject = Instantiate(treeObjects[randomTreeID],randomPosition, Quaternion.identity);
+            GameObject treeObject = Instantiate(treeObjects[randomTreeID],randomPosition, Quaternion.identity,collectibleResourcesContainer);
         }
     }
 
@@ -96,7 +98,7 @@ public class WorldGenerator : MonoBehaviour
                 placingIsPossible = StonePlacingIsPossible(randomPosition);
             }
 
-            GameObject stoneObject = Instantiate(stoneObjects[randomStoneID], randomPosition, Quaternion.identity);
+            GameObject stoneObject = Instantiate(stoneObjects[randomStoneID], randomPosition, Quaternion.identity,collectibleResourcesContainer);
         }
     }
 
@@ -130,7 +132,7 @@ public class WorldGenerator : MonoBehaviour
                 placingIsPossible = BushPlacingIsPossible(randomPosition);
             }
 
-            GameObject bushObject = Instantiate(bushObjects[randomBushID], randomPosition, Quaternion.identity);
+            GameObject bushObject = Instantiate(bushObjects[randomBushID], randomPosition, Quaternion.identity,collectibleResourcesContainer);
         }
     }
 

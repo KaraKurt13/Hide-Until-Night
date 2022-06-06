@@ -9,6 +9,7 @@ public class Item : ScriptableObject
     public string itemName;
     public Sprite itemImage;
     public ItemType itemType;
+    public ItemUsage[] itemUsage;
     public bool isStackable;
 
     public virtual void UseItem()
@@ -22,6 +23,13 @@ public class Item : ScriptableObject
         Food,
         Equipment
     }
+
+    public enum ItemUsage
+    {
+        Melting,
+        Fuel,
+    }
+
 
 
 }

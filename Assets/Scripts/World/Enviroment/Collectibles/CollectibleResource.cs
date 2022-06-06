@@ -36,7 +36,6 @@ public class CollectibleResource : MonoBehaviour
             DropItems();
             collectingIsUnavaible(this);
             Destroy(this.gameObject);
-
         }
     }
 
@@ -117,6 +116,7 @@ public class CollectibleResource : MonoBehaviour
                 }
                 
             }
+            
             counter++;
 
             

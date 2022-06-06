@@ -14,11 +14,14 @@ public class NightWatcherIdleState : EnemyAIState
     private Transform playerTransform;
     private NightWatcherChaseState chaseState;
 
+    private IEnumerator coroutine;
+
     private void Start()
     {
         playerIsInSight = false;
         enemyIsWalking = false;
         chaseState = GetComponent<NightWatcherChaseState>();
+        coroutine = Walking();
     }
     public override EnemyAIState EnemyAction()
     {
@@ -26,12 +29,12 @@ public class NightWatcherIdleState : EnemyAIState
         if(playerIsInSight == true)
         {
             StopCoroutine(Walking());
-            enemyIsWalking = false;
-            playerIsInSight = false;
-            destination.target = playerTransform;
 
             this.enabled = false;
             chaseState.enabled = true;
+            enemyIsWalking = false;
+            playerIsInSight = false;
+            destination.target = playerTransform;
             return chaseState;
         }
 
@@ -66,24 +69,19 @@ public class NightWatcherIdleState : EnemyAIState
         enemyIsWalking = true;
         destination.target.localPosition = randomWalkingPosition;
         yield return new WaitForSeconds(Random.Range(5f,10f));
-        enemyIsWalking = false;
+        if(!playerIsInSight)
+            {
+            enemyIsWalking = false;
+        }
        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "PlayerEnemyTrigger")
+        if (collision.tag == "PlayerEnemyTrigger"&& playerIsInSight==false && enabled)
         {
             playerTransform = collision.transform;
             Debug.Log("!!!!!!!");
             playerIsInSight = true;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "PlayerEnemyTrigger")
-        {
-            playerTransform = collision.transform;
-            playerIsInSight = false;
         }
     }
 }
