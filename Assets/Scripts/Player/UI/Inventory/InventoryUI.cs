@@ -6,6 +6,7 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private GameObject inventoryUI;
     [SerializeField] private PlayerInventory playerInventoryInfo;
+    [SerializeField] private Transform playerPosition;
 
     public delegate void InventoryUsage();
     public static event InventoryUsage inventoryOpened;
@@ -13,6 +14,23 @@ public class InventoryUI : MonoBehaviour
 
     public InventorySlot[] inventorySlots;
     private bool inventoryIsAvaible;
+
+    public void DropItem(Item item)
+    {
+        Vector2 dropPosition;
+
+        RaycastHit2D hit = Physics2D.Raycast(playerPosition.transform.position, -playerPosition.transform.up, 0.2f);
+        if(hit.collider!=null)
+        {
+            dropPosition = new Vector2(hit.point.x, hit.point.y+0.02f);
+            playerInventoryInfo.DropItem(item, dropPosition);
+            return;
+        }
+
+        dropPosition = new Vector2(playerPosition.position.x, playerPosition.position.y - 0.2f);
+
+        playerInventoryInfo.DropItem(item,dropPosition);
+    }
 
     private void Start()
     {
@@ -85,11 +103,13 @@ public class InventoryUI : MonoBehaviour
         inventoryIsAvaible = true;
     }
 
+    
     private void OnEnable()
     {
         PlayerInventory.inventoryChanged += UpdateInventory;
         PlayerCollecting.collectingStarted += DisableInventoryByCollecting;
         PlayerCollecting.collectingEnded += EnableInventoryByCollecting;
+        InventoryItemDescription.itemDropped += DropItem;
     }
     
 }

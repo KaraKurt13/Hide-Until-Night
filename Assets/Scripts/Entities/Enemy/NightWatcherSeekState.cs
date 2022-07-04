@@ -11,7 +11,7 @@ public class NightWatcherSeekState : EnemyAIState
     [SerializeField] bool seekingStarted;
     [SerializeField] bool playerEscaped;
 
-    private IEnumerator coroutine;
+    private Coroutine seeking;
 
     private void Start()
     {
@@ -19,14 +19,20 @@ public class NightWatcherSeekState : EnemyAIState
         playerEscaped = false;
         idleState = GetComponent<NightWatcherIdleState>();
         chaseState = GetComponent<NightWatcherChaseState>();
-        coroutine = SeekingProgress();
         playerIsNear = false;
     }
     public override EnemyAIState EnemyAction()
     {
+        if (seekingStarted == false)
+        {
+            Debug.Log("seek");
+            seeking = StartCoroutine(SeekingProcess());
+
+        }
+
         if (playerIsNear == true)
         {
-            StopCoroutine(coroutine);
+            StopCoroutine(seeking);
             SetBooleansDefault();
             this.enabled = false;
             chaseState.enabled = true;
@@ -39,17 +45,7 @@ public class NightWatcherSeekState : EnemyAIState
             idleState.enabled = true;
             this.enabled = false;
             return idleState;
-        }
-
-
-        if (seekingStarted == false)
-        {
-            Debug.Log("seek");
-            StartCoroutine(coroutine);
-
-        }
-
-        
+        }     
         return this;
     }
 
@@ -60,7 +56,7 @@ public class NightWatcherSeekState : EnemyAIState
         playerEscaped = false;
     }
 
-    IEnumerator  SeekingProgress()
+    IEnumerator  SeekingProcess()
     {
         seekingStarted = true;
         yield return new WaitForSeconds(7);

@@ -9,10 +9,12 @@ public class PlayerInventory : ScriptableObject
     public List<int> itemsAmount;
 
 
+    [SerializeField] private GameObject worldItemPrefab;
+    [SerializeField] private Transform playerPosition;
+
     public delegate void InventoryChanged();
     public static event InventoryChanged inventoryChanged;
     
-
 
     public void AddItem(Item item,int amount)
     {
@@ -49,11 +51,22 @@ public class PlayerInventory : ScriptableObject
 
     }
 
+    public void DropItem(Item item, Vector2 dropPosition)
+    {
+
+        worldItemPrefab.transform.position = dropPosition;
+        worldItemPrefab.GetComponent<WorldItem>().item = item;
+        for(int i=0;i<itemsAmount[items.IndexOf(item)];i++)
+        {
+            Instantiate(worldItemPrefab, dropPosition, Quaternion.identity);
+        }
+    }
     
     private void OnDisable()
     {
         items.Clear();
         itemsAmount.Clear();
     }
+
 
 }

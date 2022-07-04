@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8031c9e75afdcf44fbacd8060c6748c1, type: 3}
   m_Name: Iron Bar
   m_EditorClassIdentifier: 
-  itemName: 
-  itemImage: {fileID: 0}
+  itemName: Iron Bar
+  itemImage: {fileID: 21300000, guid: a028b26d9bb029e44954d1f3fcf1af39, type: 3}
   itemType: 0
   itemUsage: 
-  isStackable: 0
+  isStackable: 1
+  isPlaceable: 0

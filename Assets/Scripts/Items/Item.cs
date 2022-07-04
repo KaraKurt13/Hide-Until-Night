@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class Item : ScriptableObject
 {
     public string itemName;
+    public string itemDescription;
     public Sprite itemImage;
     public ItemType itemType;
     public ItemUsage[] itemUsage;
     public bool isStackable;
+    public bool isPlaceable;
 
     public virtual void UseItem()
     {

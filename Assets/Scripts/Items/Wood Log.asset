@@ -15,5 +15,6 @@ MonoBehaviour:
   itemName: Wood Log
   itemImage: {fileID: 21300000, guid: 9197e05ecddf51342bfcac3e60bb8667, type: 3}
   itemType: 0
-  itemUsage: 01000000
+  itemUsage: 0100000000000000
   isStackable: 1
+  isPlaceable: 0

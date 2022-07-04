@@ -8,8 +8,12 @@ public class InventorySlot : MonoBehaviour
     //public Item item;
     //public int itemAmount;
 
+    public delegate void SlotEvent(Item item);
+    public static event SlotEvent slotClicked;
+
     [SerializeField] private Image itemImage;
     [SerializeField] private Text itemAmountText;
+    [SerializeField] private Button itemButton;
 
     public void UpdateInventorySlot(Item item,int itemAmount)
     {
@@ -25,5 +29,12 @@ public class InventorySlot : MonoBehaviour
 
         itemImage.sprite = item.itemImage;
         itemAmountText.text = itemAmount.ToString();
+
+        itemButton.onClick.RemoveAllListeners();
+        itemButton.onClick.AddListener(delegate { slotClicked(item); });
+
+
     }
+
+    
 }

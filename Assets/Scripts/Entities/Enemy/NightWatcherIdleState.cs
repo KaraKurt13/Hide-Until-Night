@@ -14,21 +14,25 @@ public class NightWatcherIdleState : EnemyAIState
     private Transform playerTransform;
     private NightWatcherChaseState chaseState;
 
-    private IEnumerator coroutine;
+    private Coroutine walking;
 
     private void Start()
     {
         playerIsInSight = false;
         enemyIsWalking = false;
         chaseState = GetComponent<NightWatcherChaseState>();
-        coroutine = Walking();
     }
     public override EnemyAIState EnemyAction()
     {
-
-        if(playerIsInSight == true)
+        if (enemyIsWalking == false)
         {
-            StopCoroutine(Walking());
+            GetRandomPositionForWalking();
+            walking = StartCoroutine(Walking());
+        }
+
+        if (playerIsInSight == true)
+        {
+            StopCoroutine(walking);
 
             this.enabled = false;
             chaseState.enabled = true;
@@ -38,11 +42,7 @@ public class NightWatcherIdleState : EnemyAIState
             return chaseState;
         }
 
-        if (enemyIsWalking == false)
-        {
-            GetRandomPositionForWalking();
-            StartCoroutine(Walking());
-        }
+        
 
         return this;
     }

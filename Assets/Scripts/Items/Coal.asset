@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8031c9e75afdcf44fbacd8060c6748c1, type: 3}
   m_Name: Coal
   m_EditorClassIdentifier: 
-  itemName: 
-  itemImage: {fileID: 0}
+  itemName: Coal
+  itemImage: {fileID: 21300000, guid: 3017a682e58656a45872027a598ec169, type: 3}
   itemType: 0
-  itemUsage: 
-  isStackable: 0
+  itemUsage: 01000000
+  isStackable: 1
+  isPlaceable: 0

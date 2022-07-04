@@ -7,10 +7,10 @@ public class PlayerCollecting : MonoBehaviour
     private PlayerAnimation playerAnimationController;
     private PlayerStats playerStats;
     private Vector3 collectingPosition;
-    bool collectingIsAvaible;
-    bool collectingIsInProgress;
-    bool spriteIsFlipped;
-    float collectingSpeed;
+    private bool collectingIsAvaible;
+    private bool collectingIsInProgress;
+    private bool spriteIsFlipped;
+    private float collectingSpeed;
     private List<CollectibleResource> avaibleResources;
     private CollectibleResource resourceToCollect;
 

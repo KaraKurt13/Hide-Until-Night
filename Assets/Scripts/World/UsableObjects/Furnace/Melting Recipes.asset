@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Melting Recipes
   m_EditorClassIdentifier: 
   itemIn:
-  - {fileID: 11400000, guid: a411f5ca1c4d7ba49bc5550662a59f0a, type: 2}
-  - {fileID: 11400000, guid: 0ee2c004f78707445b3721f5c1060589, type: 2}
+  - {fileID: 11400000, guid: 3d7827c386b4bcc4abaf77e29a956e03, type: 2}
+  - {fileID: 11400000, guid: 18d1ed177cb8a104b9cbd3e8368a4dd3, type: 2}
   itemOut:
-  - {fileID: 11400000, guid: 0ee2c004f78707445b3721f5c1060589, type: 2}
-  - {fileID: 11400000, guid: a411f5ca1c4d7ba49bc5550662a59f0a, type: 2}
+  - {fileID: 11400000, guid: a77402abdf9d17d43a47092427bd8811, type: 2}
+  - {fileID: 11400000, guid: bfe463812a367fe46a21c613f8a03a15, type: 2}
