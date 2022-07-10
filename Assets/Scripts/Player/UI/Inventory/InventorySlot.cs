@@ -32,8 +32,6 @@ public class InventorySlot : MonoBehaviour
 
         itemButton.onClick.RemoveAllListeners();
         itemButton.onClick.AddListener(delegate { slotClicked(item); });
-
-
     }
 
     

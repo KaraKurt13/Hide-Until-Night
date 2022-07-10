@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items: []
   itemsAmount: 
+  worldItemPrefab: {fileID: 7474360839374406934, guid: 7dd4d82f219e3434eb1c11104f62954e,
+    type: 3}
+  playerPosition: {fileID: 0}

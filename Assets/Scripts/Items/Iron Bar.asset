@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Iron Bar
   m_EditorClassIdentifier: 
   itemName: Iron Bar
+  itemDescription: Can be used to craft instuments.
   itemImage: {fileID: 21300000, guid: a028b26d9bb029e44954d1f3fcf1af39, type: 3}
   itemType: 0
   itemUsage: 

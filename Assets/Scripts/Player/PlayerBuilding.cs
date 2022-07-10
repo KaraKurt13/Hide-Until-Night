@@ -42,6 +42,7 @@ public class PlayerBuilding : MonoBehaviour
 
     void Start()
     {
+
         BuildingSlot.NewTileSelected += ChangeBuildingTile;
         UnbuildedTile.buildingIsAvaible += AllowBuilding;
         UnbuildedTile.buildingIsUnavaible += ForbidBuilding;
@@ -121,7 +122,7 @@ public class PlayerBuilding : MonoBehaviour
     {
         Vector3 flipScale = transform.localScale;
         flipScale.x *= -1;
-        playerPosition.localScale = flipScale;
+        //playerPosition.localScale = flipScale;
     }
 
     private void CalculateNearestBuilding()

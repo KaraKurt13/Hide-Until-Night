@@ -374,7 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  progressOfCollecting: 1
+  progressOfCollecting: 10
   itemsDrop:
   - {fileID: 11400000, guid: 18d1ed177cb8a104b9cbd3e8368a4dd3, type: 2}
   itemsDropAmount: 04000000

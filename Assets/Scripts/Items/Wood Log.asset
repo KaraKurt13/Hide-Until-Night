@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wood Log
   m_EditorClassIdentifier: 
   itemName: Wood Log
+  itemDescription: You can do so much with it.
   itemImage: {fileID: 21300000, guid: 9197e05ecddf51342bfcac3e60bb8667, type: 3}
   itemType: 0
   itemUsage: 0100000000000000
