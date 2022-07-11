@@ -1,4 +1,5 @@
 # SurvivalGame
+Gameplay - https://youtu.be/WVqMIXE2et8
 
  2D Sandbox game similar to Terraria and Don't Starve. Basic, completed, functionality:
 - character movement;
